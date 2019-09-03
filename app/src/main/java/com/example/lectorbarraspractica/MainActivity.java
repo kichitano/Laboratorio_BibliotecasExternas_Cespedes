@@ -4,16 +4,14 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonCapturar;
     TextView txtResultado;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonCapturar = findViewById(R.id.btnIr);
         txtResultado = findViewById(R.id.txtTexto);
+        imageView = findViewById(R.id.sView);
 
         buttonCapturar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,14 +55,13 @@ public class MainActivity extends AppCompatActivity {
         manipularResultado(intentResult);
     }
 
-    private void actualiarUITextViews(String resultadoScaneo, String ImagePath){
+    private void actualiarUITextViews(String resultadoScaneo){
         ((TextView)findViewById(R.id.txtTexto)).setText(resultadoScaneo);
-
     }
 
     private void manipularResultado(IntentResult intentResult){
         if(intentResult != null){
-            actualiarUITextViews(intentResult.getContents(), intentResult.getBarcodeImagePath());
+            actualiarUITextViews(intentResult.getContents());
         }else{
             Toast.makeText(getApplicationContext(),"No se leyó nada", Toast.LENGTH_SHORT).show();
         }

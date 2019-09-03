@@ -7,7 +7,7 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <FrameLayout class="com.example.lectorbarraspractica.FrgCamara"
+    <ImageView class="com.example.lectorbarraspractica.FrgCamara"
         android:id="@+id/sView"
         android:layout_width="388dp"
         android:layout_height="500dp"
@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-    </FrameLayout>
+    </ImageView>
 
     <TextView
         android:id="@+id/txtTexto"
